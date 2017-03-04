@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @job = Job.new
+    @event = Event.new
     @jobs = Job.all
   end
 
@@ -13,6 +14,7 @@ class JobsController < ApplicationController
   def show
      # @job = Job.find params[:id]
      @contact = @job.contacts.new
+     @event = Event.new
      @update = @job.updates.new
   end
 

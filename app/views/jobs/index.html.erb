@@ -1,5 +1,6 @@
 <html>
    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
@@ -140,12 +141,10 @@
          <br>
                <div id="events_box">
                   <% @ordered_events.each do |event| %>
-                     <%= link_to event do %>
                         <div id="h_event_name"><%= event.name %></div>
                         <blockquote><div id="h_event_detail"><%= event.s_time.strftime('%A, %B %d, %Y at %I:%M %p')%></div>
                            <div id="h_event_detail"><%= event.address %></div></blockquote>
                         <blockquote><div id="h_event_detail"> — <%= event.note %></div></blockquote>
-                     <% end %>
                   <% end %>
                </div>
             </div>
