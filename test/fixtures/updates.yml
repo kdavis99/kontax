@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  u_date: 2017-03-03
+  note: MyString
+  job: one
+  user: one
+
+two:
+  u_date: 2017-03-03
+  note: MyString
+  job: two
+  user: two

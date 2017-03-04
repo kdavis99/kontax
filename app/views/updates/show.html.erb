@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>U date:</strong>
+  <%= @update.u_date %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @update.note %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @update.job %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @update.user %>
+</p>
+
+<%= link_to 'Edit', edit_update_path(@update) %> |
+<%= link_to 'Back', updates_path %>
