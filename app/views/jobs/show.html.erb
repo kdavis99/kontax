@@ -8,19 +8,30 @@
    </head>
    <div id="entire_page">
       <body>
-         <p>
-         <strong>Company:</strong>
-         <%= @job.company %>
-         </p>
+			<div id="job_title_box">
+         <div id="s_job_company">
+	         <%= @job.company %>
+				 </div>
+         <div id="s_status">
+         <strong>Status:</strong>
+         <%= @job.status %>
+         </div>
 
-         <p>
+         <div id="s_subtitles">
+				 <p>
          <strong>Position:</strong>
          <%= @job.position %>
-         </p>
 
-         <p>
          <strong>Location:</strong>
          <%= @job.location %>
+				 </p>
+
+         <p>
+         <strong>App link:</strong>
+         <%= @job.app_link %>
+
+         <strong>Date applied:</strong>
+         <%= @job.date_applied %>
          </p>
 
          <p>
@@ -29,24 +40,11 @@
          </p>
 
          <p>
-         <strong>App link:</strong>
-         <%= @job.app_link %>
-         </p>
-
-         <p>
-         <strong>Date applied:</strong>
-         <%= @job.date_applied %>
-         </p>
-
-         <p>
-         <strong>Status:</strong>
-         <%= @job.status %>
-         </p>
-
-         <p>
          <strong>Note:</strong>
          <%= @job.note %>
          </p>
+         </div>
+ 			</div>
 
          <p>
          <h6> Current Contacts </h6> 
