@@ -1,5 +1,6 @@
 <div class='nested-fields'>
 
+  <%= f.inputs do %>
   <div class="field">
     <%= f.input :name %>
   </div>
@@ -20,6 +21,7 @@
     <%= f.input :position %>
   </div>
 
+  <h4> contacts jobs </h4>
   <div class="field">
     <%= f.input :note %>
   </div>
@@ -27,4 +29,5 @@
 
     <%= link_to_remove_association "remove contact", f %>
 
+  <% end %>
 </div>

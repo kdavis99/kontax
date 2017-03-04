@@ -57,9 +57,6 @@
   <!-- contacts -->
   <h3> Contacts </h3>
   <div id='contacts'>
-    <%= f.semantic_fields_for :contacts do |contact| %>
-      <%= render 'contact_fields', f: contact %>
-    <% end %>
     <div class='links'>
       <%= link_to_add_association 'add contact', f, :contacts %>
     </div>
