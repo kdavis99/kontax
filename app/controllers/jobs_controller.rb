@@ -10,6 +10,9 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
+     # @job = Job.find params[:id]
+     @contact = @job.contacts.new
+     # @update = @job.updates.new
   end
 
   # GET /jobs/new
@@ -25,6 +28,7 @@ class JobsController < ApplicationController
   # POST /jobs.json
   def create
     @job = Job.new(job_params)
+    @job.user = current_user
 
     respond_to do |format|
       if @job.save
