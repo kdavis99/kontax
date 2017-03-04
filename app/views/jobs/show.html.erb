@@ -41,17 +41,19 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @job.user %>
+ 	<h6> Current Contacts </h6> 
+	<% for contact in @job.contacts %>
+  	 <%= contact.name %>
+	<% end %>
+<p>
+
+<p>
+ <h6> Recent Updates </h6> 
+	<% for update in @job.updates %>
+  	<%= update.u_date %>
+   	<%= update.note %>
+	<% end %>
 </p>
-
-<% for contact in @job.contacts %>
-   <%= contact.name %>
-<% end %>
-
-<% for update in @job.updates %>
-   <%= update.note %>
-<% end %>
 
 <%= render 'contacts/form' %>
 <%= render 'updates/form' %>

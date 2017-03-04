@@ -1,33 +1,46 @@
 <div class='nested-fields'>
-
-  <%= f.inputs do %>
-  <div class="field">
-    <%= f.input :name %>
-  </div>
-
-  <div class="field">
-    <%= f.input :email %>
-  </div>
-
-  <div class="field">
-    <%= f.input :phone %>
-  </div>
-
-  <div class="field">
-    <%= f.input :company %>
-  </div>
-
-  <div class="field">
-    <%= f.input :position %>
-  </div>
-
-  <h4> contacts jobs </h4>
-  <div class="field">
-    <%= f.input :note %>
-  </div>
+<table>
+  <tr>
+		<td>
+  		<div class="field">
+		    <%= f.text_field :name, placeholder: "Name"%>
+		  </div>
+	  </td>
+    <td>
+		  <div class="field">
+    		<%= f.text_field :company, placeholder: "Company"%>
+		  </div>
+    </td>
+  </tr>
+	<tr>
+		<td>
+		  <div class="field">
+    		<%= f.text_field :email, placeholder: "person@company.com" %>
+		  </div>
+		</td>
+		<td>
+		  <div class="field">
+    		<%= f.text_field :phone, placeholder: "Phone Number" %>
+		  </div>
+		</td>
+  </tr>
+	<tr>
+		<td colspan="2">
+		  <div class="field">
+    		<%= f.text_field :position, placeholder: "Position" %>
+		  </div>
+		</td>
+  </tr>
+	<tr>
+		<td colspan="2">
+		  <div class="field">
+		    <%= f.text_field :note, placeholder: "Any other notes"%>
+		  </div>
+		</td>
+  </tr>
+</table>
     <%= f.hidden_field :user_id, :value => current_user.id %>
 
     <%= link_to_remove_association "remove contact", f %>
 
-  <% end %>
 </div>

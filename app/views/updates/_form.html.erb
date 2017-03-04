@@ -12,18 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :u_date %>
-    <%= f.date_select :u_date %>
+    <div class="row">
+      <div class="large-12 columns select-date-wrapper">
+        <%= f.label :u_date %>
+        <%= f.date_select(:u_date, options = {order: [:month, :day, :year]}, html_options = { class: 'select-date'}) %>
+      </div>
+    </div>
   </div>
 
   <div class="field">
     <%= f.label :note %>
     <%= f.text_field :note %>
-  </div>
-
-  <div class="field">
-    <%= f.label :job_id %>
-    <%= f.text_field :job_id %>
   </div>
 
   <div class="actions">
