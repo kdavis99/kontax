@@ -8,14 +8,18 @@
    </head>
    <div id="entire_page">
       <body>
+			 <div class="w3-row-padding">
+			   <div class="w3-twothird">
+         <div id="s_status">
+         <h6>
+         <%= @job.status %>
+				 </h6>
+         </div>
+
 			<div id="job_title_box">
          <div id="s_job_company">
 	         <%= @job.company %>
 				 </div>
-         <div id="s_status">
-         <strong>Status:</strong>
-         <%= @job.status %>
-         </div>
 
          <div id="s_subtitles">
 				 <p>
@@ -45,7 +49,9 @@
          </p>
          </div>
  			</div>
+ 	  </div>
 
+		<div class="w3-third">
          <p>
          <h6> Current Contacts </h6> 
          <% for contact in @job.contacts %>
@@ -60,6 +66,8 @@
             <%= update.note %>
          <% end %>
          </p>
+
+		</div>
 
          <%= render 'contacts/form' %>
          <%= render 'updates/form' %>
