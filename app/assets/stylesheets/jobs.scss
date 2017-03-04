@@ -8,15 +8,37 @@
         height: 100%;
 }
 
+#test_box {
+        background: #EEE;
+        border: solid;
+        margin-top: 3%;
+        width: 90%;
+}
+
+#h_job_company {
+        font-family: 'Playfair Display', serif;
+        font-size: 25px;
+}
+
+#h_position {
+        font-family: 'Oswald', sans-serif;
+        font-size: 17px;
+}
+
+#h_job_date {
+        font-family: 'Oswald', sans-serif;
+        font-size: 17px;
+}
+
 #didnt_get_job_div {
         position: relative;
         background: #EEE;
         border-left-style: solid;
         border-width: 15px;
         border-color: #555;
-        width: 100%;
+        width: 90%;
         height: 100px;
-        padding-left: 2%;
+        padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
         margin-left: 2.5%;
@@ -25,16 +47,14 @@
 }
 
 #applied_job_div {
-        font-family: 'Oswald', sans-serif;
-        font-size: 17px;
         position: relative;
         background: #EEE;
         border-left-style: solid;
         border-width: 15px;
         border-color: orange;
-        width: 100%;
+        width: 90%;
         height: 100px;
-        padding-left: 2%;
+        padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
         margin-left: 2.5%;
@@ -48,9 +68,9 @@
         border-left-style: solid;
         border-width: 15px;
         border-color: yellow;
-        width: 100%;
+        width: 90%;
         height: 100px;
-        padding-left: 2%;
+        padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
         margin-left: 2.5%;
@@ -64,9 +84,9 @@
         border-left-style: solid;
         border-width: 15px;
         border-color: teal;
-        width: 100%;
+        width: 90%;
         height: 100px;
-        padding-left: 2%;
+        padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
         margin-left: 2.5%;
@@ -80,9 +100,9 @@
         border-left-style: solid;
         border-width: 15px;
         border-color: green;
-        width: 100%;
+        width: 90%;
         height: 100px;
-        padding-left: 2%;
+        padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
         margin-left: 2.5%;
