@@ -2,12 +2,14 @@
    <head>
       <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
       <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
       <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
 
    <div id="entire_page">
       <body>
+
          <p id="notice"><%= notice %></p>
 
          <!-- updates the most recent date to be the last update that was added. -->
@@ -23,60 +25,98 @@
             <% @ordered_jobs = @ordered_jobs.sort_by { |a| a.most_recent_date } %>
          <% end %>
 
+         <!-- updates the most recent date to be the last update that was added. -->
+         <% @upcoming_events = Event.all %>
+         <% @ordered_events = Array.new %>
+
+         <% @upcoming_events.each do |event| %>
+            <% if event.s_time > Date.parse(Time.now.to_s) %>
+               <% @ordered_events.push(event) %>
+            <% end %>
+         <% end %>
+
+         <!-- sorts jobs by most recent date -->
+         <% @ordered_events.each do |event| %>
+            <% @ordered_events = @ordered_events.sort_by { |a| a.s_time } %>
+         <% end %>
+
          <div class="w3-row-padding">
             <div class="w3-twothird">
+               <div id="heading1">Jobs:</div>
                <% @ordered_jobs.each do |job| %>
-                  <div class="w3-third">
-                     <% if job.status == 1 %> 
-                        <div id="applied_job_div">
-                           <div id="h_job_company"><%= job.company %></div>
-                           <div id="h_position"><%= job.position %></div>
-                           <div id="h_job_date">
-                              <%= job.most_recent_date.strftime('%b %d, %Y') %>
+                  <% if job.user_id == current_user.id %>
+                     <div class="w3-third">
+                        <% if job.status == 1 %> 
+                           <div id="applied_job_div">
+                              <%= link_to job do %>
+                                 <div id="h_job_company"><%= job.company %></div>
+                                 <div id="h_position"><%= job.position %></div>
+                                 <div id="h_job_date">
+                                    <%= job.most_recent_date.strftime('%B %d, %Y') %>
+                                 </div>
+                              <% end %>
                            </div>
-                        </div>
-                     <% end %>
-                     <% if job.status == 2 %> 
-                        <div id="contact_job_div">
-                           <div id="h_job_company"><%= job.company %></div>
-                           <div id="h_position"><%= job.position %></div>
-                           <div id="h_job_date">
-                              <%= job.most_recent_date.strftime('%b %d, %Y') %>
+                        <% end %>
+                        <% if job.status == 2 %> 
+                           <div id="contact_job_div">
+                              <%= link_to job do %>
+                                 <div id="h_job_company"><%= job.company %></div>
+                                 <div id="h_position"><%= job.position %></div>
+                                 <div id="h_job_date">
+                                    <%= job.most_recent_date.strftime('%B %d, %Y') %>
+                                 </div>
+                              <% end %>
                            </div>
-                        </div>
-                     <% end %>
-                     <% if job.status == 3 %> 
-                        <div id="interview_job_div">
-                           <div id="h_job_company"><%= job.company %></div>
-                           <div id="h_position"><%= job.position %></div>
-                           <div id="h_job_date">
-                              <%= job.most_recent_date.strftime('%b %d, %Y') %>
+                        <% end %>
+                        <% if job.status == 3 %> 
+                           <div id="interview_job_div">
+                              <%= link_to job do %>
+                                 <div id="h_job_company"><%= job.company %></div>
+                                 <div id="h_position"><%= job.position %></div>
+                                 <div id="h_job_date">
+                                    <%= job.most_recent_date.strftime('%B %d, %Y') %>
+                                 </div>
+                              <% end %>
                            </div>
-                        </div>
-                     <% end %>
-                     <% if job.status == 4 %> 
-                        <div id="offer_job_div">
-                           <div id="h_job_company"><%= job.company %></div>
-                           <div id="h_position"><%= job.position %></div>
-                           <div id="h_job_date">
-                              <%= job.most_recent_date.strftime('%b %d, %Y') %>
+                        <% end %>
+                        <% if job.status == 4 %> 
+                           <div id="offer_job_div">
+                              <%= link_to job do %>
+                                 <div id="h_job_company"><%= job.company %></div>
+                                 <div id="h_position"><%= job.position %></div>
+                                 <div id="h_job_date">
+                                    <%= job.most_recent_date.strftime('%B %d, %Y') %>
+                                 </div>
+                              <% end %>
                            </div>
-                        </div>
-                     <% end %>
-                     <% if job.status == 5 %> 
-                        <div id="didnt_get_job_div">
-                           <div id="h_job_company"><%= job.company %></div>
-                           <div id="h_position"><%= job.position %></div>
-                           <div id="h_job_date">
-                              <%= job.most_recent_date.strftime('%b %d, %Y') %>
+                        <% end %>
+                        <% if job.status == 5 %> 
+                           <div id="didnt_get_job_div">
+                              <%= link_to job do %>
+                                 <div id="h_job_company"><%= job.company %></div>
+                                 <div id="h_position"><%= job.position %></div>
+                                 <div id="h_job_date">
+                                    <%= job.most_recent_date.strftime('%B %d, %Y') %>
+                                 </div>
+                              <% end %>
                            </div>
-                        </div>
+                        <% end %>
                      <% end %>
-                  </div>
-               <% end %>
+                     </div>
+                  <% end %>
             </div>
             <div class="w3-third">
-               <div id="test_box">yayayaya</div>
+               <div id="heading1">Upcoming Events:</div>
+               <div id="events_box">
+                  <% @ordered_events.each do |event| %>
+                     <%= link_to event do %>
+                     <div id="h_event_name"><%= event.name %></div>
+                     <blockquote><div id="h_event_detail"><%= event.s_time.strftime('%A, %B %d, %Y at %I:%M %p')%></div>
+                        <div id="h_event_detail"><%= event.address %></div></blockquote>
+                     <blockquote><div id="h_event_detail"> — <%= event.note %></div></blockquote>
+                  <% end %>
+                  <% end %>
+               </div>
             </div>
          </div>
          <table>
@@ -124,3 +164,6 @@
       </body>
    </div>
 </html>
+<script src="../zurb-foundation3/foundation3/javascripts/jquery.min.js"></script>  
+<script src="../zurb-foundation3/foundation3/javascripts/app.js"></script>  
+<script src="../zurb-foundation3/foundation3/javascripts/jquery.reveal.js">
