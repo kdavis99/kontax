@@ -11,9 +11,7 @@
          <div class="w3-row-padding">
             <div class="w3-twothird">
                <div id="s_status">
-                  <h6>
-                     <%= @job.status %>
-                  </h6>
+                  <%= @job.status %>
                </div>
 
                <div id="job_title_box">
@@ -22,31 +20,28 @@
                   </div>
 
                   <div id="s_subtitles">
-                     <p>
                      <strong>Position:</strong>
                      <%= @job.position %>
 
                      <strong>Location:</strong>
                      <%= @job.location %>
-                     </p>
+                     <br><br>
+                  </div>
 
-                     <p>
+                  <div id="s_subs">
                      <strong>App link:</strong>
                      <%= @job.app_link %>
 
                      <strong>Date applied:</strong>
                      <%= @job.date_applied %>
-                     </p>
+                     <br><br>
 
-                     <p>
                      <strong>Description:</strong>
                      <%= @job.description %>
-                     </p>
+                     <br><br>
 
-                     <p>
                      <strong>Note:</strong>
                      <%= @job.note %>
-                     </p>
                   </div>
                </div>
             </div>
@@ -65,21 +60,55 @@
                   <% @job.updates.reverse_each do |update| %>
                      <% if !update.note.blank? %>
                         <div id="h_update_title"><%= update.u_date.strftime('%A, %B %d, %Y')%></div>
-                     <blockquote><div id="update_note"> — <%= update.note %></div></blockquote>
-                  <% end %>
+                        <blockquote><div id="update_note"> — <%= update.note %></div></blockquote>
+                     <% end %>
                   <% end %>
                   </p>
                </div>
             </div>
+            <button type="button" id="modal_buttons" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addContactModal">New Contact</button>
+            <!-- Add Job Modal -->
+            <div class="modal fade" id="addContactModal" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enter contact details</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p><%= render 'contacts/form' %></p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+            <button type="button" id="modal_buttons" class="btn btn-info btn-lg" data-toggle="modal" data-target="#addUpdateModal">New Update</button>
+            <!-- Add Job Modal -->
+            <div class="modal fade" id="addUpdateModal" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enter update details</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p><%= render 'updates/form' %></p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
          </div>
-   </div>
 
 
-   </div>
-
-   <%= render 'contacts/form' %><br><br>
-   <%= render 'updates/form' %>
-   </div>
       </body>
-      </div>
+   </div>
 </html>

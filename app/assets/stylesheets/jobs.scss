@@ -114,7 +114,7 @@
         border-left-style: solid;
         border-width: 15px;
         border-color: yellow;
-      personidth: 90%;
+        width: 90%;
         height: 100px;
         padding-left: 4%;
         margin-bottom: 7%;
@@ -226,16 +226,26 @@ select.select-date {
         padding-top: 3%;
         margin-top: 3%;
         font-family: 'Oswald', sans-serif;
-        font-size: 40px;
+        font-size: 20px;
+}
+
+#s_subs {
+        padding-top: 3%;
+        margin-top: 3%;
+        font-family: 'Oswald', sans-serif;
+        font-size: 15px;
 }
 
 #s_status {
         position: relative;
-        background: red;
-        left: -40;
+        background: #EEE;
+        outline: solid grey 1px;
+        left: 66%;
+        text-align: center;
+        top: 46px;
+        width: 120px;
         z-index: 1;
-
-
+        font-size: 20px;
 }
 
 #contact_person_div {
@@ -278,4 +288,15 @@ select.select-date {
 
 #update_note {
         font-size: 14px;
+}
+
+#modal_buttons a:hover {
+        background: #AAA !important;
+}
+
+#modal_buttons {
+        background: #444;
+        border: #444;
+        margin-top: 1%;
+        margin-left: 1.5%;
 }
