@@ -10,13 +10,15 @@
       <body>
          <div class="w3-row-padding">
             <div class="w3-twothird">
+               <div id="s_status">
+                  <h6>
+                     <%= @job.status %>
+                  </h6>
+               </div>
+
                <div id="job_title_box">
                   <div id="s_job_company">
                      <%= @job.company %>
-                  </div>
-                  <div id="s_status">
-                     <strong>Status:</strong>
-                     <%= @job.status %>
                   </div>
 
                   <div id="s_subtitles">
@@ -58,21 +60,24 @@
                      </div>
                   <% end %>
                <% end %>
-
-               <p>
-               
-               <div id="updates_box">
-               <h6> Recent Updates </h6> 
-               <% for update in @job.updates %>
-                  <%= update.u_date %>
-                  <%= update.note %>
-               <% end %>
-               </p>
-               </div>
             </div>
-
-            <%= render 'contacts/form' %><br><br>
-            <%= render 'updates/form' %>
-      </body>
          </div>
+   </div>
+
+
+   <div id="updates_box">
+      <h6> Recent Updates </h6> 
+      <% for update in @job.updates %>
+         <%= update.u_date %>
+         <%= update.note %>
+      <% end %>
+      </p>
+   </div>
+   </div>
+
+   <%= render 'contacts/form' %><br><br>
+   <%= render 'updates/form' %>
+   </div>
+      </body>
+      </div>
 </html>
