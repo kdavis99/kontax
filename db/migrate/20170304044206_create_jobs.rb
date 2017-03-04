@@ -7,6 +7,7 @@ class CreateJobs < ActiveRecord::Migration[5.0]
       t.string :description
       t.string :app_link
       t.date :date_applied
+      t.date :most_recent_date
       t.integer :status
       t.string :note
       t.references :user, foreign_key: true

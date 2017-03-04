@@ -1,5 +1,5 @@
-<%= form_for(update) do |f| %>
-  <% if update.errors.any? %>
+<%= form_for([@job, @update]) do |f| %>
+  <% if @update.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(update.errors.count, "error") %> prohibited this update from being saved:</h2>
 
@@ -24,11 +24,6 @@
   <div class="field">
     <%= f.label :job_id %>
     <%= f.text_field :job_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
   </div>
 
   <div class="actions">

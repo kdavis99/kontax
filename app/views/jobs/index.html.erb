@@ -3,39 +3,55 @@
 <h1>Jobs</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>Position</th>
-      <th>Location</th>
-      <th>Description</th>
-      <th>App link</th>
-      <th>Date applied</th>
-      <th>Status</th>
-      <th>Note</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @jobs.each do |job| %>
+   <thead>
       <tr>
-        <td><%= job.company %></td>
-        <td><%= job.position %></td>
-        <td><%= job.location %></td>
-        <td><%= job.description %></td>
-        <td><%= job.app_link %></td>
-        <td><%= job.date_applied %></td>
-        <td><%= job.status %></td>
-        <td><%= job.note %></td>
-        <td><%= job.user.email %></td>
-        <td><%= link_to 'Show', job %></td>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <th>Company</th>
+         <th>Position</th>
+         <th>Location</th>
+         <th>Description</th>
+         <th>App link</th>
+         <th>Date applied</th>
+         <th>Recent Date</th>
+         <th>Status</th>
+         <th>Note</th>
+         <th>User</th>
+         <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
+   </thead>
+
+   <!-- updates the most recent date to be the last update that was added. -->
+   <% @ordered_jobs = Job.all %>
+   <% @ordered_jobs.each do |job| %>
+      <% if job.updates.size > 0 %>
+        <% job.most_recent_date = job.updates[job.updates.size - 1].u_date %>
+        <%= job.most_recent_date %>
+      <% end %>
+   <% end %>
+
+   <!-- sorts jobs by most recent date -->
+   <% @ordered_jobs.each do |job| %>
+      <% @ordered_jobs = @ordered_jobs.sort_by { |a| a.most_recent_date } %>
+   <% end %>
+
+   <tbody>
+      <% @ordered_jobs.each do |job| %>
+         <tr>
+            <td><%= job.company %></td>
+            <td><%= job.position %></td>
+            <td><%= job.location %></td>
+            <td><%= job.description %></td>
+            <td><%= job.app_link %></td>
+            <td><%= job.date_applied %></td>
+            <td><%= job.most_recent_date %></td>
+            <td><%= job.status %></td>
+            <td><%= job.note %></td>
+            <td><%= job.user.email %></td>
+            <td><%= link_to 'Show', job %></td>
+            <td><%= link_to 'Edit', edit_job_path(job) %></td>
+            <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         </tr>
+      <% end %>
+   </tbody>
 </table>
 
 <br>

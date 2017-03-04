@@ -12,6 +12,7 @@ class JobsController < ApplicationController
   def show
      # @job = Job.find params[:id]
      @contact = @job.contacts.new
+     @update = @job.updates.new
      # @update = @job.updates.new
   end
 
@@ -29,6 +30,7 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(job_params)
     @job.user = current_user
+    @job.most_recent_date = @job.date_applied
 
     respond_to do |format|
       if @job.save

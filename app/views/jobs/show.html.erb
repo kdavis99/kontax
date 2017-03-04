@@ -48,6 +48,12 @@
 <% for contact in @job.contacts %>
    <%= contact.name %>
 <% end %>
+
+<% for update in @job.updates %>
+   <%= update.note %>
+<% end %>
+
 <%= render 'contacts/form' %>
+<%= render 'updates/form' %>
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

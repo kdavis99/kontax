@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 20170304044307) do
     t.string   "description"
     t.string   "app_link"
     t.date     "date_applied"
+    t.date     "most_recent_date"
     t.integer  "status"
     t.string   "note"
     t.integer  "user_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
@@ -60,11 +61,9 @@ ActiveRecord::Schema.define(version: 20170304044307) do
     t.date     "u_date"
     t.string   "note"
     t.integer  "job_id"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_id"], name: "index_updates_on_job_id"
-    t.index ["user_id"], name: "index_updates_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
