@@ -1,5 +1,5 @@
-<%= form_for(contact) do |f| %>
-  <% if contact.errors.any? %>
+<%= form_for([@job, @contact]) do |f| %>
+  <% if @contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
 
@@ -42,19 +42,10 @@
   </div>
 
   <div class="field">
-    <%= f.label :user_id %>
-    <%= f.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= f.label :event_id %>
     <%= f.text_field :event_id %>
   </div>
 
-  <div class="field">
-    <%= f.label :job_id %>
-    <%= f.text_field :job_id %>
-  </div>
 
   <div class="actions">
     <%= f.submit %>

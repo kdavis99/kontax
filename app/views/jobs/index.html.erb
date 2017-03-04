@@ -29,7 +29,7 @@
         <td><%= job.date_applied %></td>
         <td><%= job.status %></td>
         <td><%= job.note %></td>
-        <td><%= job.user %></td>
+        <td><%= job.user.email %></td>
         <td><%= link_to 'Show', job %></td>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>

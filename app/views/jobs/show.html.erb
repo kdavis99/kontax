@@ -45,5 +45,9 @@
   <%= @job.user %>
 </p>
 
+<% for contact in @job.contacts %>
+   <%= contact.name %>
+<% end %>
+<%= render 'contacts/form' %>
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>
