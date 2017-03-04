@@ -15,7 +15,9 @@
 #events_box {
         background: #EEE;
         margin-top: 1%;
-        width: 90%;
+        width: 93%;
+        overflow: auto;
+        padding: 10px;
         height: 500px;
 }
 
@@ -85,9 +87,7 @@
         width: 90%;
         height: 100px;
         padding-left: 4%;
-        padding-top: .5%;
-        margin-top: 3%;
-        margin-bottom: 5%;
+        margin-bottom: 7%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -102,9 +102,7 @@
         width: 90%;
         height: 100px;
         padding-left: 4%;
-        padding-top: .5%;
-        margin-top: 3%;
-        margin-bottom: 5%;
+        margin-bottom: 7%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -119,9 +117,7 @@
         width: 90%;
         height: 100px;
         padding-left: 4%;
-        padding-top: .5%;
-        margin-top: 3%;
-        margin-bottom: 5%;
+        margin-bottom: 7%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -136,9 +132,7 @@
         width: 90%;
         height: 100px;
         padding-left: 4%;
-        padding-top: .5%;
-        margin-bottom: 5%;
-        margin-top: 3%;
+        margin-bottom: 7%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -153,9 +147,7 @@
         width: 90%;
         height: 100px;
         padding-left: 4%;
-        padding-top: .5%;
-        margin-top: 3%;
-        margin-bottom: 5%;
+        margin-bottom: 7%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -179,6 +171,11 @@
 
 #icon_log:focus {
         outline: 0;
+}
+
+#form_for {
+        font-size: 10px;
+        width: 200px;
 }
 
 select.select-date {

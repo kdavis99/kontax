@@ -4,16 +4,19 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
+    @job = Job.new
     @events = Event.all
   end
 
   # GET /events/1
   # GET /events/1.json
   def show
+    @job = Job.new
   end
 
   # GET /events/new
   def new
+    @job = Job.new
     @event = Event.new
   end
 
