@@ -15,3 +15,17 @@
  *= require foundation
  *= require foundation_and_overrides
  */
+
+#top_bar {
+        background: #EEE;
+}
+
+#login_button a:hover {
+        background: #EEE;
+        color: #AAA;
+}
+
+#add_button a:hover {
+        background: #EEE;
+        color: #AAA;
+}

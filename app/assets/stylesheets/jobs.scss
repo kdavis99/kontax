@@ -4,15 +4,33 @@
 
 #entire_page {
         border: solid black;
+        background: #fafafa;
         width: 100%;
         height: 100%;
 }
 
-#test_box {
+#heading1 {
+        font-family: 'Barrio', cursive;
+        font-size: 30px;
+}
+
+#events_box {
         background: #EEE;
-        border: solid;
-        margin-top: 3%;
+        margin-top: 1%;
         width: 90%;
+        height: 500px;
+}
+
+#h_event_name {
+        font-family: 'Playfair Display', serif;
+        font-size: 30px;
+        border-bottom-style: dotted;
+}
+
+#h_event_detail {
+        margin-left: 4%;
+        font-family: 'Oswald', sans-serif;
+        font-size: 17px;
 }
 
 #h_job_company {
@@ -30,6 +48,30 @@
         font-size: 17px;
 }
 
+#events_box a:hover {
+        color: #000;
+}
+
+#applied_job_div a:hover {
+        color: #000;
+}
+
+#didnt_get_job_div a:hover {
+        color: #000;
+}
+
+#contact_job_div a:hover {
+        color: #000;
+}
+
+#interview_job_div a:hover {
+        color: #000;
+}
+
+#offer_job_div a:hover {
+        color: #000;
+}
+
 #didnt_get_job_div {
         position: relative;
         background: #EEE;
@@ -41,6 +83,7 @@
         padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
+        margin-bottom: 5%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -57,6 +100,7 @@
         padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
+        margin-bottom: 5%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -73,6 +117,7 @@
         padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
+        margin-bottom: 5%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
@@ -88,6 +133,7 @@
         height: 100px;
         padding-left: 4%;
         padding-top: .5%;
+        margin-bottom: 5%;
         margin-top: 3%;
         margin-left: 2.5%;
         margin-right: 2.5%;
@@ -105,10 +151,12 @@
         padding-left: 4%;
         padding-top: .5%;
         margin-top: 3%;
+        margin-bottom: 5%;
         margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
 }
 
 #all_jobs {
+        margin-top: 20%;
 }

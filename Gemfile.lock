@@ -185,7 +185,6 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
   formtastic
   foundation-rails (~> 6.2.3)
   jbuilder (~> 2.5)

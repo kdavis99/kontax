@@ -4,6 +4,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    @job = Job.new
     @jobs = Job.all
   end
 
