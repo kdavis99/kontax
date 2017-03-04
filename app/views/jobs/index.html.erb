@@ -46,7 +46,7 @@
                <% @ordered_jobs.each do |job| %>
                   <% if job.user_id == current_user.id %>
                      <div class="w3-third">
-                        <% if job.status == 1 %> 
+                        <% if job.status == "applied_no_contact" %> 
                            <div id="applied_job_div">
                               <%= link_to job do %>
                                  <div id="h_job_company"><%= job.company %></div>
@@ -57,7 +57,7 @@
                               <% end %>
                            </div>
                         <% end %>
-                        <% if job.status == 2 %> 
+                        <% if job.status == "in_contact" %> 
                            <div id="contact_job_div">
                               <%= link_to job do %>
                                  <div id="h_job_company"><%= job.company %></div>
@@ -68,7 +68,7 @@
                               <% end %>
                            </div>
                         <% end %>
-                        <% if job.status == 3 %> 
+                        <% if job.status == "after_interview" %> 
                            <div id="interview_job_div">
                               <%= link_to job do %>
                                  <div id="h_job_company"><%= job.company %></div>
@@ -79,7 +79,7 @@
                               <% end %>
                            </div>
                         <% end %>
-                        <% if job.status == 4 %> 
+                        <% if job.status == "no_offer" %> 
                            <div id="offer_job_div">
                               <%= link_to job do %>
                                  <div id="h_job_company"><%= job.company %></div>
@@ -90,7 +90,7 @@
                               <% end %>
                            </div>
                         <% end %>
-                        <% if job.status == 5 %> 
+                        <% if job.status == "offer" %> 
                            <div id="didnt_get_job_div">
                               <%= link_to job do %>
                                  <div id="h_job_company"><%= job.company %></div>
