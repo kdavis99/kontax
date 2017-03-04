@@ -53,26 +53,28 @@
             <div class="w3-third">
                <% for contact in @job.contacts %>
                   <% if contact != nil and !contact.name.blank? %>
-                     <div id="contact_job_div">
+                     <div id="contact_person_div">
                         <div id="h_job_contact"><%= contact.name %></div>
                         <div id="h_position"><%= contact.position %></div>
                         <div id="h_contact"><%= contact.email + " || " + contact.phone %></div>
                      </div>
                   <% end %>
                <% end %>
+               <div id="heading1">Updates:</div>
+               <div id="updates_box">
+                  <% @job.updates.reverse_each do |update| %>
+                     <% if !update.note.blank? %>
+                        <div id="h_update_title"><%= update.u_date.strftime('%A, %B %d, %Y')%></div>
+                     <blockquote><div id="update_note"> — <%= update.note %></div></blockquote>
+                  <% end %>
+                  <% end %>
+                  </p>
+               </div>
             </div>
          </div>
    </div>
 
 
-   <div id="updates_box">
-      <h6> Recent Updates </h6> 
-      <% for update in @job.updates %>
-         <%= update.u_date %>
-         <%= update.note %>
-      <% end %>
-      </p>
-   </div>
    </div>
 
    <%= render 'contacts/form' %><br><br>

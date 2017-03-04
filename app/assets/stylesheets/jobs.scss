@@ -114,7 +114,7 @@
         border-left-style: solid;
         border-width: 15px;
         border-color: yellow;
-        width: 90%;
+      personidth: 90%;
         height: 100px;
         padding-left: 4%;
         margin-bottom: 7%;
@@ -238,7 +238,7 @@ select.select-date {
 
 }
 
-#contact_job_div {
+#contact_person_div {
         position: relative;
         background: #EEE;
         border-left-style: solid;
@@ -246,9 +246,7 @@ select.select-date {
         border-color: #333;
         width: 80%;
         height: 100px;
-        padding-left: 4%;
         margin-bottom: 7%;
-        margin-left: 2.5%;
         margin-right: 2.5%;
         display: inline-block;
 }
@@ -265,9 +263,19 @@ select.select-date {
 
 #updates_box {
         background: #EEE;
-        margin-top: 1%;
-        width: 93%;
+        width: 80%;
         overflow: auto;
         padding: 10px;
-        height: 220px;
+        margin-right: 2.5%;
+        height: 240px;
+}
+
+#h_update_title {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        border-bottom-style: dotted;
+}
+
+#update_note {
+        font-size: 14px;
 }

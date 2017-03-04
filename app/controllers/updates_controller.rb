@@ -4,12 +4,14 @@ class UpdatesController < ApplicationController
    # GET /updates
    # GET /updates.json
    def index
+      @job = Job.new
       @updates = Update.all
    end
 
    # GET /updates/1
    # GET /updates/1.json
    def show
+      @job = Job.new
    end
 
    # GET /updates/new
@@ -33,7 +35,7 @@ class UpdatesController < ApplicationController
 
       respond_to do |format|
          if @update.save
-            format.html { redirect_to @update, notice: 'Update was successfully created.' }
+            format.html { redirect_to @job, notice: 'Update was successfully created.' }
             format.json { render :show, status: :created, location: @update }
          else
             format.html { render :new }
