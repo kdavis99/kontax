@@ -8,63 +8,71 @@
    </head>
    <div id="entire_page">
       <body>
-			<div id="job_title_box">
-         <div id="s_job_company">
-	         <%= @job.company %>
-				 </div>
-         <div id="s_status">
-         <strong>Status:</strong>
-         <%= @job.status %>
-         </div>
+         <div class="w3-row-padding">
+            <div class="w3-twothird">
+               <div id="job_title_box">
+                  <div id="s_job_company">
+                     <%= @job.company %>
+                  </div>
+                  <div id="s_status">
+                     <strong>Status:</strong>
+                     <%= @job.status %>
+                  </div>
 
-         <div id="s_subtitles">
-				 <p>
-         <strong>Position:</strong>
-         <%= @job.position %>
+                  <div id="s_subtitles">
+                     <p>
+                     <strong>Position:</strong>
+                     <%= @job.position %>
 
-         <strong>Location:</strong>
-         <%= @job.location %>
-				 </p>
+                     <strong>Location:</strong>
+                     <%= @job.location %>
+                     </p>
 
-         <p>
-         <strong>App link:</strong>
-         <%= @job.app_link %>
+                     <p>
+                     <strong>App link:</strong>
+                     <%= @job.app_link %>
 
-         <strong>Date applied:</strong>
-         <%= @job.date_applied %>
-         </p>
+                     <strong>Date applied:</strong>
+                     <%= @job.date_applied %>
+                     </p>
 
-         <p>
-         <strong>Description:</strong>
-         <%= @job.description %>
-         </p>
+                     <p>
+                     <strong>Description:</strong>
+                     <%= @job.description %>
+                     </p>
 
-         <p>
-         <strong>Note:</strong>
-         <%= @job.note %>
-         </p>
-         </div>
- 			</div>
+                     <p>
+                     <strong>Note:</strong>
+                     <%= @job.note %>
+                     </p>
+                  </div>
+               </div>
+            </div>
+            <div class="w3-third">
+               <% for contact in @job.contacts %>
+                  <% if contact != nil and !contact.name.blank? %>
+                     <div id="contact_job_div">
+                        <div id="h_job_contact"><%= contact.name %></div>
+                        <div id="h_position"><%= contact.position %></div>
+                        <div id="h_contact"><%= contact.email + " || " + contact.phone %></div>
+                     </div>
+                  <% end %>
+               <% end %>
 
-         <p>
-         <h6> Current Contacts </h6> 
-         <% for contact in @job.contacts %>
-            <%= contact.name %>
-         <% end %>
-         <p>
+               <p>
+               
+               <div id="updates_box">
+               <h6> Recent Updates </h6> 
+               <% for update in @job.updates %>
+                  <%= update.u_date %>
+                  <%= update.note %>
+               <% end %>
+               </p>
+               </div>
+            </div>
 
-         <p>
-         <h6> Recent Updates </h6> 
-         <% for update in @job.updates %>
-            <%= update.u_date %>
-            <%= update.note %>
-         <% end %>
-         </p>
-
-         <%= render 'contacts/form' %>
-         <%= render 'updates/form' %>
-         <%= link_to 'Edit', edit_job_path(@job) %> |
-         <%= link_to 'Back', jobs_path %>
+            <%= render 'contacts/form' %><br><br>
+            <%= render 'updates/form' %>
       </body>
-   </div>
+         </div>
 </html>
