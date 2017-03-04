@@ -24,7 +24,6 @@
    <% @ordered_jobs.each do |job| %>
       <% if job.updates.size > 0 %>
         <% job.most_recent_date = job.updates[job.updates.size - 1].u_date %>
-        <%= job.most_recent_date %>
       <% end %>
    <% end %>
 
