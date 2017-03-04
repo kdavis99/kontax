@@ -3,10 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #entire_page {
-        border: solid black;
-        background: #fafafa;
-        width: 100%;
-        height: 100%;
+        margin: 0 auto;
+        overflow: auto;
 }
 
 #heading1 {
@@ -49,26 +47,32 @@
 }
 
 #events_box a:hover {
+        text-decoration: none;
         color: #000;
 }
 
 #applied_job_div a:hover {
+        text-decoration: none;
         color: #000;
 }
 
 #didnt_get_job_div a:hover {
+        text-decoration: none;
         color: #000;
 }
 
 #contact_job_div a:hover {
+        text-decoration: none;
         color: #000;
 }
 
 #interview_job_div a:hover {
+        text-decoration: none;
         color: #000;
 }
 
 #offer_job_div a:hover {
+        text-decoration: none;
         color: #000;
 }
 
@@ -161,6 +165,21 @@
         margin-top: 20%;
 }
 
+#icon_log {
+        display: inline-block;
+        margin-right: 3%;
+        padding-left: 5px;
+        color: #aaa;
+}
+
+#icon_log a:hover {
+        text-decoration: none;
+        color: white !important;
+}
+
+#icon_log:focus {
+        outline: 0;
+}
 
 select.select-date {
 	  width: 30%;
@@ -178,4 +197,5 @@ select.select-date {
     margin-right: 0;
   }
 }
+
 

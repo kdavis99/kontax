@@ -1,61 +1,72 @@
-<p id="notice"><%= notice %></p>
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <div id="entire_page">
+      <body>
+         <p>
+         <strong>Company:</strong>
+         <%= @job.company %>
+         </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @job.company %>
-</p>
+         <p>
+         <strong>Position:</strong>
+         <%= @job.position %>
+         </p>
 
-<p>
-  <strong>Position:</strong>
-  <%= @job.position %>
-</p>
+         <p>
+         <strong>Location:</strong>
+         <%= @job.location %>
+         </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @job.location %>
-</p>
+         <p>
+         <strong>Description:</strong>
+         <%= @job.description %>
+         </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @job.description %>
-</p>
+         <p>
+         <strong>App link:</strong>
+         <%= @job.app_link %>
+         </p>
 
-<p>
-  <strong>App link:</strong>
-  <%= @job.app_link %>
-</p>
+         <p>
+         <strong>Date applied:</strong>
+         <%= @job.date_applied %>
+         </p>
 
-<p>
-  <strong>Date applied:</strong>
-  <%= @job.date_applied %>
-</p>
+         <p>
+         <strong>Status:</strong>
+         <%= @job.status %>
+         </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @job.status %>
-</p>
+         <p>
+         <strong>Note:</strong>
+         <%= @job.note %>
+         </p>
 
-<p>
-  <strong>Note:</strong>
-  <%= @job.note %>
-</p>
+         <p>
+         <h6> Current Contacts </h6> 
+         <% for contact in @job.contacts %>
+            <%= contact.name %>
+         <% end %>
+         <p>
 
-<p>
- 	<h6> Current Contacts </h6> 
-	<% for contact in @job.contacts %>
-  	 <%= contact.name %>
-	<% end %>
-<p>
+         <p>
+         <h6> Recent Updates </h6> 
+         <% for update in @job.updates %>
+            <%= update.u_date %>
+            <%= update.note %>
+         <% end %>
+         </p>
 
-<p>
- <h6> Recent Updates </h6> 
-	<% for update in @job.updates %>
-  	<%= update.u_date %>
-   	<%= update.note %>
-	<% end %>
-</p>
-
-<%= render 'contacts/form' %>
-<%= render 'updates/form' %>
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
+         <%= render 'contacts/form' %>
+         <%= render 'updates/form' %>
+         <%= link_to 'Edit', edit_job_path(@job) %> |
+         <%= link_to 'Back', jobs_path %>
+      </body>
+   </div>
+</html>

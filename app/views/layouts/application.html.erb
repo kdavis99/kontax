@@ -2,17 +2,102 @@
 <html>
    <head>
       <script src="/js/foundation.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
       <title>Kontax</title>
-      <br>
 
       <%= csrf_meta_tags %>
 
       <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
       <%= javascript_include_tag :cocoon %>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
 
-   <body>
-      <%= yield %>
-   </body>
+   <div id="entire_page">
+      <body>
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+               <div class="nav navbar-nav navbar-left">
+                  <li><%= link_to "Contax", jobs_path %></li>
+               </div>
+               <ul class="nav navbar-nav navbar-right">
+                  <% if user_signed_in? %>
+                     <li><a href="#" id="icon_log" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addModal"></a></li>
+                     <!-- <li><button type="button" id="icon_log" class="glyphicon glyphicon-plus" data-toggle="modal" data-target="#addModal"></button></li> -->
+                     <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+                  <% else %>
+                     <li><a href="#" id="icon_log" data-toggle="modal" data-target="#signupModal"> Signup</a></li>
+                     <li><a href="#" id="icon_log" data-toggle="modal" data-target="#loginModal"> Login</a></li>
+                  <% end %>
+
+               </ul>
+            </div>
+         </nav>
+         <!-- Trigger the modal with a button -->
+
+         <!-- Login Modal -->
+         <div class="modal fade" id="loginModal" role="dialog">
+            <div class="modal-dialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Login</h4>
+                  </div>
+                  <div class="modal-body">
+                     <%= render 'devise/sessions/new' %>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+         <!-- Login Modal -->
+         <div class="modal fade" id="signupModal" role="dialog">
+            <div class="modal-dialog">
+               <!-- Modal content-->
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">Signup</h4>
+                  </div>
+                  <div class="modal-body">
+                     <%= render 'devise/registrations/new' %>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+         <% if user_signed_in? %>
+            <!-- Add Modal -->
+            <div class="modal fade" id="addModal" role="dialog">
+               <div class="modal-dialog">
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Enter new job</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p><%= render 'jobs/form' %></p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                     </div>
+                  </div>
+
+               </div>
+            </div>
+         <% end %>
+         <%= yield %>
+      </body>
+   </div>
 </html>

@@ -4,14 +4,10 @@
       <link href="https://fonts.googleapis.com/css?family=Oswald|Playfair+Display" rel="stylesheet">
       <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
       <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
    </head>
 
    <div id="entire_page">
       <body>
-
-         <p id="notice"><%= notice %></p>
-
          <!-- updates the most recent date to be the last update that was added. -->
          <% @ordered_jobs = Job.all %>
          <% @ordered_jobs.each do |job| %>
@@ -110,11 +106,11 @@
                <div id="events_box">
                   <% @ordered_events.each do |event| %>
                      <%= link_to event do %>
-                     <div id="h_event_name"><%= event.name %></div>
-                     <blockquote><div id="h_event_detail"><%= event.s_time.strftime('%A, %B %d, %Y at %I:%M %p')%></div>
-                        <div id="h_event_detail"><%= event.address %></div></blockquote>
-                     <blockquote><div id="h_event_detail"> — <%= event.note %></div></blockquote>
-                  <% end %>
+                        <div id="h_event_name"><%= event.name %></div>
+                        <blockquote><div id="h_event_detail"><%= event.s_time.strftime('%A, %B %d, %Y at %I:%M %p')%></div>
+                           <div id="h_event_detail"><%= event.address %></div></blockquote>
+                        <blockquote><div id="h_event_detail"> — <%= event.note %></div></blockquote>
+                     <% end %>
                   <% end %>
                </div>
             </div>
@@ -164,6 +160,3 @@
       </body>
    </div>
 </html>
-<script src="../zurb-foundation3/foundation3/javascripts/jquery.min.js"></script>  
-<script src="../zurb-foundation3/foundation3/javascripts/app.js"></script>  
-<script src="../zurb-foundation3/foundation3/javascripts/jquery.reveal.js">
