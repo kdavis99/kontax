@@ -18,6 +18,7 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new
+    @job.contacts.new
   end
 
   # GET /jobs/1/edit
@@ -73,6 +74,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:company, :position, :location, :description, :app_link, :date_applied, :status, :note, :user_id)
+      params.require(:job).permit(:company, :position, :location, :description, :app_link, :date_applied, :status, :note, :user_id, contacts_attributes: [:name, :email, :phone, :company, :position, :note, :user_id])
     end
 end
