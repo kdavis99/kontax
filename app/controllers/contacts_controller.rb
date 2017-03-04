@@ -14,9 +14,9 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
-    @job = Job.find params[:job_id]
-    @contact = @job.contacts.new
-    #@contact = Contact.new
+    #@job = Job.find params[:job_id]
+    #@contact = @job.contacts.new
+    @contact = Contact.new
   end
 
   # GET /contacts/1/edit

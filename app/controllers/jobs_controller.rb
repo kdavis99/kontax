@@ -13,7 +13,6 @@ class JobsController < ApplicationController
      # @job = Job.find params[:id]
      @contact = @job.contacts.new
      @update = @job.updates.new
-     # @update = @job.updates.new
   end
 
   # GET /jobs/new
