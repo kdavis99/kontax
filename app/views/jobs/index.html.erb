@@ -102,7 +102,42 @@
                   <% end %>
             </div>
             <div class="w3-third">
+
+
+         <% @all_my_events = Event.all %>
+         <% @my_events = Array.new %>
+         <% @all_my_events.each do |e| %>
+            <% if e != nil and e.user_id == current_user.id %>
+               <% @my_events.push(e) %>
+            <% end %>
+         <% end %>
+
+
                <div id="heading1">Upcoming Events:</div>
+
+         <div style='width: 400px;'>
+            <div id="multi_markers" style='width: 93%; height: 200px;'></div>
+         </div>
+         <script type="text/javascript">
+						var mapStyle = 
+						[{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#165c64"},{"saturation":34},{"lightness":-69},{"visibility":"on"}]},{"featureType":"landscape","elementType":"geometry","stylers":[{"hue":"#b7caaa"},{"saturation":-14},{"lightness":-18},{"visibility":"on"}]},{"featureType":"landscape.man_made","elementType":"all","stylers":[{"hue":"#cbdac1"},{"saturation":-6},{"lightness":-9},{"visibility":"on"}]},{"featureType":"road","elementType":"geometry","stylers":[{"hue":"#8d9b83"},{"saturation":-89},{"lightness":-12},{"visibility":"on"}]},{"featureType":"road.highway","elementType":"geometry","stylers":[{"hue":"#d4dad0"},{"saturation":-88},{"lightness":54},{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"geometry","stylers":[{"hue":"#bdc5b6"},{"saturation":-89},{"lightness":-3},{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry","stylers":[{"hue":"#bdc5b6"},{"saturation":-89},{"lightness":-26},{"visibility":"on"}]},{"featureType":"poi","elementType":"geometry","stylers":[{"hue":"#c17118"},{"saturation":61},{"lightness":-45},{"visibility":"on"}]},{"featureType":"poi.park","elementType":"all","stylers":[{"hue":"#8ba975"},{"saturation":-46},{"lightness":-28},{"visibility":"on"}]},{"featureType":"transit","elementType":"geometry","stylers":[{"hue":"#a43218"},{"saturation":74},{"lightness":-51},{"visibility":"simplified"}]},{"featureType":"administrative.province","elementType":"all","stylers":[{"hue":"#ffffff"},{"saturation":0},{"lightness":100},{"visibility":"simplified"}]},{"featureType":"administrative.neighborhood","elementType":"all","stylers":[{"hue":"#ffffff"},{"saturation":0},{"lightness":100},{"visibility":"off"}]},{"featureType":"administrative.locality","elementType":"labels","stylers":[{"hue":"#ffffff"},{"saturation":0},{"lightness":100},{"visibility":"off"}]},{"featureType":"administrative.land_parcel","elementType":"all","stylers":[{"hue":"#ffffff"},{"saturation":0},{"lightness":100},{"visibility":"off"}]},{"featureType":"administrative","elementType":"all","stylers":[{"hue":"#3a3935"},{"saturation":5},{"lightness":-57},{"visibility":"off"}]},{"featureType":"poi.medical","elementType":"geometry","stylers":[{"hue":"#cba923"},{"saturation":50},{"lightness":-46},{"visibility":"on"}]}
+						];
+						var handler = Gmaps.build('Google');
+						handler.buildMap({ internal: {id: 'multi_markers'},
+						   provider: {
+						      styles: mapStyle
+						   }
+						}, function(){
+						   var markers = handler.addMarkers([
+						         <% @my_events.each do |event| %>
+						            { lat: <%= event.latitude%>, lng: <%= event.longitude%>},
+						         <% end %>
+						   ]);
+						   handler.bounds.extendWith(markers);
+						   handler.fitMapToBounds();
+						});
+         </script>
+         <br>
                <div id="events_box">
                   <% @ordered_events.each do |event| %>
                      <%= link_to event do %>
@@ -115,48 +150,7 @@
                </div>
             </div>
          </div>
-         <table>
-            <thead>
-               <tr>
-                  <th>Company</th>
-                  <th>Position</th>
-                  <th>Location</th>
-                  <th>Description</th>
-                  <th>App link</th>
-                  <th>Date applied</th>
-                  <th>Recent Date</th>
-                  <th>Status</th>
-                  <th>Note</th>
-                  <th>User</th>
-                  <th colspan="3"></th>
-               </tr>
-            </thead>
 
-
-            <tbody>
-               <% @ordered_jobs.each do |job| %>
-                  <tr>
-                     <td><%= job.company %></td>
-                     <td><%= job.position %></td>
-                     <td><%= job.location %></td>
-                     <td><%= job.description %></td>
-                     <td><%= job.app_link %></td>
-                     <td><%= job.date_applied %></td>
-                     <td><%= job.most_recent_date %></td>
-                     <td><%= job.status %></td>
-                     <td><%= job.note %></td>
-                     <td><%= job.user.email %></td>
-                     <td><%= link_to 'Show', job %></td>
-                     <td><%= link_to 'Edit', edit_job_path(job) %></td>
-                     <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                  </tr>
-               <% end %>
-            </tbody>
-         </table>
-
-         <br>
-
-         <%= link_to 'New Job', new_job_path %>
       </body>
    </div>
 </html>
